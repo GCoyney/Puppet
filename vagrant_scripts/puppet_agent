@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sudo rpm -Uvh https://yum.puppet.com/puppet5/puppet5-release-el-7.noarch.rpm
+
+export PATH=/opt/puppetlabs/bin:$PATH
+
+sudo yum install -y puppet-agent
+
+sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=true
+

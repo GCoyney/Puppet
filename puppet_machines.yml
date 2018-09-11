@@ -1,0 +1,27 @@
+---
+- name: master
+  box: centos/7
+  cpus: 1
+  memory: 2048
+  package_manager: yum
+  packages:
+  - vim
+  public_ip: 192.168.1.50
+  hostname: jhmaster.puppet
+  scripts:
+  - puppet_master
+  files:
+  - destination: /home/vagrant/vagrant_scripts
+    source: ~/Desktop/projects/Puppet/vagrant_scripts
+- name: agent
+  box: centos/7
+  cpus: 1
+  memory: 2048
+  public_ip: 192.168.1.51
+  hostname: jhagent.puppet
+  scripts:
+  - puppet_agent
+  files:
+  - destination: /home/vagrant/vagrant_scripts
+    source: ~/Desktop/projects/Puppet/vagrant_scripts
+...
