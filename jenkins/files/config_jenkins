@@ -1,0 +1,11 @@
+sudo su - jenkins
+export JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+mkdir -p /usr/share/jenkins/ref/init.groovy.d && cp jenkins/init.groovy /usr/share/jenkins/ref/init.groovy.d/init.groovy
+cp jenkins/plugins.txt /usr/share/jenkins/ref/plugins.txt
+
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+#cp jenkins/install-plugins.sh /usr/local/bin/install-plugins.sh
+#chmod +x /usr/local/bin/install-plugins.sh
+#sudo /bin/bash -c /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
+
