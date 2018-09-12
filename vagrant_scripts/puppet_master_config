@@ -1,0 +1,8 @@
+#!/bin/bash
+
+fqdn=$(facter fqdn)
+ip=$(facter ipaddress_eth1)
+
+echo "127.0.0.1   $fqdn    puppetmaster" >> /etc/hosts
+echo "$ip   $fqdn    puppetmaster" >> /etc/hosts
+

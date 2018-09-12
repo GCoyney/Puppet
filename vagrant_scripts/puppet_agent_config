@@ -1,0 +1,11 @@
+#!/bin/bash
+
+fqdn=$(facter fqdn)
+ip=$(facter ipaddress_eth1)
+
+echo "192.168.1.50 jhmaster.puppet puppetmaster" >> /etc/hosts
+echo "127.0.0.1 $fqdn puppet" >> /etc/hosts
+echo "$ip $fqdn puppet" >> /etc/hosts
+echo "[main]" >> /etc/puppetlabs/puppet/puppet.conf
+echo "server = jhmaster.puppet" >> /etc/puppetlabs/puppet/puppet.conf
+echo "environment = production" >> /etc/puppetlabs/puppet/puppet.conf
